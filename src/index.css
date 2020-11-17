@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #eee;
+
 }
 
 code {
@@ -12,8 +14,6 @@ code {
     monospace;
 }
 
-body {
-
-  background-color: #eee;
-
+.color-nav{
+  background-color: #086ff9;
 }

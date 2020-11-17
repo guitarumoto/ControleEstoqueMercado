@@ -1,14 +1,19 @@
-// Importando o React
 import React from "react";
-// Importando os components necessários da lib react-materialize
-import { Navbar, NavItem, Row} from 'react-materialize';
+import {Row} from 'react-materialize';
+import logo from '../../images/logo.jpg';
 
 const Header = () => (
-  <Row>  
-    <Navbar className="grey darken-2">
-      <NavItem href='/'>Cadastrar</NavItem>
-      <NavItem href='/contact'>Visualizar</NavItem>
-    </Navbar>
+  <Row>
+    <nav className="color-nav" variant="light">
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo"><img src={logo} width="80" height="63" className="logonavbar" /></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/cadastrar">Cadastrar</a></li>
+        <li><a href="/visualizar">Visualizar</a></li>
+        </ul>
+      </div>
+    </nav>
+
   </Row>
 );
 

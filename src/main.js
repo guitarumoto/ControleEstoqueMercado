@@ -1,14 +1,16 @@
-// Importando o React
 import React from "react";
-// Importando o component Home
 import Home from "./components/home/home";
-// Importando os components necessários da lib react-materialize
+import Cadastrar from "./components/cadastrar/cadastrar"
 import { Container } from 'react-materialize';
+import {Switch, Route} from 'react-router-dom'
 
 const Main = () => (
   <main>
     <Container>
-      <Home />
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/cadastrar" component={Cadastrar}/>
+      </Switch>
     </Container>
   </main>  
 );
