@@ -2,26 +2,24 @@ var db = require("../database/database")
 
 module.exports ={
     index(req, res){
-            var sql = "select * from produtos"
+            let query = "SELECT * FROM produtos"
             var params = []
-            const result = db.all(sql, params, (err, rows) => {
-                if (err) {
-                  res.status(400).json({"error":err.message});
-                  return;
+            db.all(query, params , (err, rows) => {
+                if(err){
+                    console.log(err)
+                    return;
+                }else{
+                    let result = rows
+                    res.json({
+                        "Produtos" : result
+                    })
                 }
-            return rows;
-        });
+            })
     },
     store(req, res){
         const {nome_produto, quantidade, preco, codigo } = req.body;
-        var sql = `INSERT INTO produtos (nome, quantidade, preco, codigo_barras) VALUES (${nome_produto},${quantidade},${preco},${codigo})`
-        var params = []
-        const result = db.all(sql, params, (err, rows) => {
-            if (err) {
-              res.status(400).json({"error":err.message});
-              return;
-            }
-            return rows;
-        });
+        let insertdata = db.prepare(`INSERT INTO produtos VALUES(NULL, ?,?,?,?)`)
+        insertdata.run(nome_produto, quantidade, preco, codigo)
     }
 }
+    

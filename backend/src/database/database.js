@@ -1,28 +1,10 @@
-var sqlite3 = require('sqlite3').verbose()
+var sqlite = require('sqlite3').verbose()
 
-const DBSOURCE = "db.sqlite"
+let db = new sqlite.Database('./banco.db', sqlite.OPEN_READWRITE | sqlite.OPEN_CREATE)
+db.run (`CREATE TABLE IF NOT EXISTS produtos(id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT UNIQUE,
+    quantidade INTEGER,
+    preco DOUBLE,
+    codigo_barras TEXT UNIQUE)`)
 
-let db = new sqlite3.Database(DBSOURCE, (err) => {
-    if (err) {
-      // Não foi possível abrir o banco de dados
-      console.error(err.message)
-      throw err
-    }else{
-        console.log('Connected to the SQLite database.')
-        db.run(`CREATE TABLE produtos (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            nome text UNIQUE NOT NULL,
-            quantidade INTEGER NOT NULL,
-            preco DOUBLE NOT NULL,
-            codigo_barras text UNIQUE NOT NULL,
-            )`,
-        (err) => {
-            if (err) {
-                // Tabela já criada
-            }
-        });  
-    }
-});
-
-
-module.exports = db
+module.exports = db 
