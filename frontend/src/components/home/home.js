@@ -13,10 +13,13 @@ const Home = () => (
         <Card>
           <div>
             <p><b>Cadastro de produto</b></p>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laborevoluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <p>"Para cadastrar um novo produto, entre na aba 'Cadastrar', insira os dados e em seguida, clique no botão cadastrar. Um alerta será enviado de que o produto foi cadastrado corretamente'"</p>
             <br/>
             <p><b>Visualizar produtos</b></p>
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut laborevoluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            <p>"Para visualizar um produto, entre na aba 'Visualizar', a lista de produtos em estoque no sistema se encontra lá."</p>
+            <br/>
+            <p><b>Deletar produtos</b></p>
+            <p>"Para deletar um produto, entre na aba 'Visualizar', escolha o produto a ser deletado e clique no botão deletar ao lado."</p>
           </div>
         </Card>
     </Col>

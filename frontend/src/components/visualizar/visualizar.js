@@ -11,6 +11,18 @@ const Visualizar = () => {
     });
   }, []);
 
+  const deleteProduto = (id) => {
+    const http = api();
+    try{
+        http.delete(`/deletar/${id}`);
+
+        alert('Produto deletado com sucesso');
+    }catch(err){
+        console.log(err);
+    }
+   
+}
+
   return (
     <div className="container cool-btn-container">
         <div className="row">
@@ -31,22 +43,21 @@ const Visualizar = () => {
                 </tr>
                 {produtos.length !== 0 && produtos.map(r => (
             <tr>
-            <td key={r.id}>{r.id} </td>
-              <td key={r.id}>{r.nome} </td>
-              <td key={r.id}>{r.quantidade} </td>
-              <td key={r.id}>{r.preco} </td>
-              <td key={r.id}>{r.codigo_barras} </td>
-              <td key={r.id}> <form method='post'>
-			<input  type='hidden' name='id' value={r.id}/>
-			  <button className='btn btn-danger'><span className='glyphicon glyphicon-trash'></span> remover</button></form>
-			  </td>
-              <td key={r.id}> <form method='post'>
-					   <input type='hidden' name='id' value={r.id}/>
-				<button className='btn btn-success'><span className='glyphicon glyphicon-pencil'></span> atualizar</button></form>
-				</td>
-
+              <td key={r.id}>{r.id} </td>
+                <td key={r.id}>{r.nome} </td>
+                <td key={r.id}>{r.quantidade} </td>
+                <td key={r.id}>{r.preco} </td>
+                <td key={r.id}>{r.codigo_barras} </td>
+                <td key={r.id}> <form method='#'>
+                <input  type='hidden' name='id' value={r.id}/>
+                <button className='btn btn-danger' onClick={() => deleteProduto(r.id)}><span className='glyphicon glyphicon-trash'></span> remover</button></form>
+              </td>
+              <td key={r.id}> 
+                <form method='post'>
+                <input type='hidden' name='id' value={r.id} />
+                <button className='btn btn-success'><span className='glyphicon glyphicon-pencil'></span> atualizar</button></form>
+              </td>
             </tr>  
-              
             ))}
               </table>
             </fieldset>
